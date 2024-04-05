@@ -8,13 +8,9 @@ const verifyJWT = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, Buffer.from(process.env.JWT_SECRET, 'base64'));
-        console.log("@@@@@@@@@@@@@@@@@@@@@@@", decoded)
-        if (!validateClaims(decoded)) {
-            return res.status(401).json({ success: false, message: "Invalid claims." });
-        }
-        req.user = decoded;
-        next();
+        const decodedPayload = jwt.decode(token);
+        const isValid = validateClaims(decodedPayload);
+        return res.status(200).json({ success: true, isValid });
     } catch (error) {
         return res.status(401).json({ success: false, message: "Invalid Token" });
     }
