@@ -3,7 +3,7 @@ const validateClaims = (claims) => {
     const isValidName = typeof claims.Name === 'string' && !/\d/.test(claims.Name);
     const isValidRole = ['Admin', 'Member', 'External'].includes(claims.Role);
     const isValidSeed = isPrime(Number(claims.Seed));
-
+    console.log('##########', isValidLength, isValidName, isValidRole, isValidSeed)
     return isValidLength && isValidName && isValidRole && isValidSeed;
 };
 
@@ -27,4 +27,4 @@ const isPrime = (num) => {
 };
 
 
-module.exports = { validateClaims };
+module.exports = { validateClaims, isPrime };
