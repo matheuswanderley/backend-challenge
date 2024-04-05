@@ -12,7 +12,7 @@ const verifyJWT = (req, res, next) => {
         const isValid = validateClaims(decodedPayload);
         return res.status(200).json({ success: true, isValid });
     } catch (error) {
-        return res.status(401).json({ success: false, message: "Invalid Token" });
+        return res.status(401).json({ success: false, message: "Invalid Token", error: error });
     }
 };
 
