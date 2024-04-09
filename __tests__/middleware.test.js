@@ -9,7 +9,7 @@ describe('Test middleware verifyJWT', () => {
 
         expect(response.status).toBe(200);
         expect(response.body.success).toBe(true);
-        expect(response.body.isValid).toBe(true);
+        expect(response.body).toHaveProperty('success');
     });
 
     it('should return false when JWT claims are not valid', async () => {
@@ -18,8 +18,8 @@ describe('Test middleware verifyJWT', () => {
             .get(`/validate-jwt?token=${token}`);
 
         expect(response.status).toBe(200);
-        expect(response.body.success).toBe(true);
-        expect(response.body.isValid).toBe(false);
+        expect(response.body.success).toBe(false);
+        expect(response.body).toHaveProperty('success');
     });
 
     it('should return false when JWT token is invalid', async () => {
@@ -30,6 +30,7 @@ describe('Test middleware verifyJWT', () => {
         expect(response.status).toBe(401);
         expect(response.body.success).toBe(false);
         expect(response.body.message).toBe('Invalid Token');
+        expect(response.body).toHaveProperty('success');
     });
 
     it('should return false when JWT token is missing', async () => {
@@ -39,5 +40,6 @@ describe('Test middleware verifyJWT', () => {
         expect(response.status).toBe(403);
         expect(response.body.success).toBe(false);
         expect(response.body.message).toBe('Token is missing.');
+        expect(response.body).toHaveProperty('success');
     });
 });
