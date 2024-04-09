@@ -50,7 +50,7 @@ npm run test
 ```
 
 # Comentários
-Tenho apenas um comentário para fazer que é a função isPrime, que tem como intuito checar se o número é primo, eu não consegue encontrar um algoritmo que performasse bem olhando para a tabela BIG O NOTATION. 
+Tenho apenas um comentário para fazer que é a função isPrime, que tem como intuito checar se o número é primo, eu não consegui encontrar um algoritmo que tivesse um desempenho bom olhando para a tabela BIG O NOTATION. 
 Deixei um comentário no código sobre isso.
 
 ![Exemplo de imagem](https://miro.medium.com/max/1200/1*j8fUQjaUlmrQEN_udU0_TQ.jpeg)
